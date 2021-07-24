@@ -2,6 +2,14 @@
 
 @extends('managment.layouts.main')
 @section('content')
+
+@if (Session::has('warning'))
+<div  x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="text-right bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+    <span class="block sm:inline text-right">{{ Session::get('warning') }}</span>
+   
+  </div>
+    
+@endif
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto" dir="rtl">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                     <table class="min-w-full leading-normal">

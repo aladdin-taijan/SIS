@@ -28,7 +28,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/managment', [AdminController::class,'index']);
 
-Route::get('/edit',[AdminController::class,'edit']);
+Route::get('/edit/{id}',[AdminController::class,'edit']);
+
+Route::post('update/{id}',[AdminController::class,'update'])->name('update');
 
 });
 
