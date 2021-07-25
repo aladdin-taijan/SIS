@@ -32,6 +32,8 @@ Route::get('/managment/edit/{id}',[AdminController::class,'edit']);
 
 Route::post('update/{id}',[AdminController::class,'update'])->name('update');
 
+Route::get('/managment/show', [AdminController::class,'show']);
+
 });
 
 

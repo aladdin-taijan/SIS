@@ -4,11 +4,13 @@ namespace App\Http\Controllers\managment;
 
 use App\Http\Controllers\Controller;
 use App\Models\Students;
+use Elibyy\TCPDF\Facades\TCPDF as FacadesTCPDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Monarobase\CountryList\CountryListFacade;
 use Illuminate\Support\Facades\Validator;
-
+use Elibyy\TCPDF\Facades\TCPDF;
+use Elibyy\TCPDF\TCPDF as TCPDFTCPDF;
 
 class AdminController extends Controller
 {
@@ -20,6 +22,21 @@ class AdminController extends Controller
         return view('managment.index' , ['allstudent'=>$allStudent]);
     }
 
+    //this method view all info about student
+    public function show()
+    {
+        $html = '<h1>Hello World</h1>';
+        
+        $pdf=new TCPDF();
+        $pdf::SetTitle('Hello World');
+        $pdf::AddPage();
+        $pdf::writeHTML($html, true, false, true, false, '');
+
+        $pdf::Output('hello_world.pdf');
+    }
+
+
+    //this method get all data admin need to update
     public function edit($studentID)
     {
         $student=DB::table('students')->find($studentID);
@@ -39,7 +56,7 @@ class AdminController extends Controller
 
         $validate=validator::make($updaterequest->all(),$rules,$messages);
         if($validate->fails()){
-           // return "hi";
+           
             return redirect()->back()->withErrors($validate)->withInput($updaterequest->all());
         }
 
@@ -66,7 +83,7 @@ class AdminController extends Controller
             'paid'=>$updaterequest->paid,
             'id_number'=>$updaterequest->id_number,
         ]);
-        //return $updaterequest->paid;
+        
         return redirect('managment')->with(['success'=>"تم تعديل سجل الطالب في قاعدة البيانات"]);
     }
 
@@ -82,7 +99,7 @@ class AdminController extends Controller
              'birth_country'=>'required',
              'nationality'=>'required',
              'phone'=>'required',
-             'id_number'=>'required|number',
+             'id_number'=>'required|numeric',
              
          
  
