@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\managment\AdminController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,15 @@ use App\Http\Controllers\managment\AdminController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/', [StudentController::class, 'create'])->name('info');
+
 // Vue Auth routes
 //Auth::routes();
 Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-//Managment and admin routes 
+//Managment and admin routes
 Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/managment', [AdminController::class,'index']);
