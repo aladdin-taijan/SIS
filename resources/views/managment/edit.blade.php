@@ -8,17 +8,24 @@
         <form class="p-10 bg-white rounded shadow-xl text-right" method="POST" action="{{route('update',$student->id)}}"  autocomplete="off" enctype="multipart/form-data" >
             @csrf 
             <p class="text-lg text-gray-800 font-medium pb-4">معلومات الطالب</p>
+            <p class="text-lg text-gray-800 font-medium pb-4">رقم الطالب: {{ $student->student_number }}</p>
+            
             
             <div class="inline-block mt-2 -mx-1 w-1/2 pr-1 text-right">
                 <label class="block text-sm text-gray-600" for="last_name">الكنية</label>
                 <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded text-right" id="last_name" name="last_name" value="{{ $student->last_name }}" type="text" required=""  aria-label="Name">
+                <div>
                 @error('last_name')
                 <small  class="text-right bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">{{$message}}</small>
                 @enderror
+                </div>
             </div>
             <div class="text-right inline-block   w-1/2 pr-1">
                 <label class="block text-m text-gray-600" for="first_name">اسم الطالب</label>
                 <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded text-right" id="first_name" name="first_name" value="{{ $student->first_name }}"  type="text" required="" aria-label="Name">
+                @error('first_name')
+                <small  class="text-right bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">{{$message}}</small>
+                @enderror
             </div>
             <div class="inline-block mt-2 -mx-1 w-1/2 pr-1  text-right">
                 <label class=" block text-sm text-gray-600" for="mother_name">اسم الأم</label>
@@ -57,10 +64,15 @@
                 </select> 
             </div>
 
+            <div class="mt-2 inline-block w-1/2 pr-1  text-right">
+                <label class="block text-sm text-gray-600" for="id_number">رقم جواز السفر/الهوية</label>
+                <input class="w-full px-5 py-1  text-gray-700 bg-gray-200 rounded text-right" id="id_number" name="id_number" type="text" value="{{ $student->id_number }}" aria-label="id_number">
+                    
+            </div>
             <div class="mt-2 inline-block w-1/2 pr-1 -mx-1 text-right">
                 <label class="block text-sm text-gray-600" for="program">التخصص الجامعي</label>
-                <select class="w-full px-1 py-3  text-gray-700 bg-gray-200 rounded text-right" id="program" name="program"  required=""  aria-label="program">
-                    <option >اختر التخصص </option>
+                <select class="w-full px-1 py-3  text-gray-700 bg-gray-200 rounded text-right" id="program" name="program"  aria-label="program">
+                    <option value="">اختر التخصص </option>
                     <option value="ليسانس">ليسانس</option>
                     <option value="ماجستير" >ماجستير</option>
                     <option value="دكتوراه">دكتوراه</option>
@@ -88,11 +100,11 @@
             
             <div class="inline-block mt-2  pr-1 w-1/2 ">
                 <label class="hidden block text-sm text-gray-600" for="residence_city">المدينة</label>
-                <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded text-right" id="residence_city"  name="residence_city" value="{{ $student->residence_city }}" type="text" required="" placeholder="المدينة" aria-label="city">
+                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded text-right" id="residence_city"  name="residence_city" value="{{ $student->residence_city }}" type="text" required="" placeholder="المدينة" aria-label="city">
             </div>
             <div class="inline-block mt-2 -mx-1 w-1/2 pr-1">
                 <label class="hidden block text-sm text-gray-600" for="residence_country">الدولة</label>
-                <select class="w-full px-1 py-3  text-gray-700 bg-gray-200 rounded text-right" id="residence_country" name="residence_country"    required=""  aria-label="country">
+                <select class="w-full px-1 py-2  text-gray-700 bg-gray-200 rounded text-right" id="residence_country" name="residence_country"    required=""  aria-label="country">
                     <option >اختر الدولة</option>
                     @foreach ($country as $countries )
                         <option @if ($countries == $student->residence_country)
@@ -102,7 +114,27 @@
                         value="{{ $countries }}">{{ $countries }}</option>
                     @endforeach
                 </select>  
-            </div><!--
+            </div>
+            <p class="text-lg text-gray-800 font-medium py-4">معلومات الدفع</p>
+            <div class="">
+                <select class="w-full px-1 py-3  text-gray-700 bg-gray-200 rounded text-right" id="paid" name="paid"    required=""  aria-label="country">
+                         <option class="text-right"
+                         @if ($student->paid == 0)
+                            selected=selected
+                            @endif
+                            value="0">لم يتم الدفع</option>
+                    
+                        <option class="text-right"
+                        @if ($student->paid == 1)
+                            selected=selected
+                            @endif
+                            value="1">تم الدفع</option>
+                        
+                        
+                    
+                </select>  
+            </div>
+            <!--
             <p class="text-lg text-gray-800 font-medium py-4">Payment information</p>
             <div class="">
                 <label class="block text-sm text-gray-600" for="cus_name">Card</label>

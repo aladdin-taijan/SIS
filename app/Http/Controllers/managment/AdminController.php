@@ -63,8 +63,11 @@ class AdminController extends Controller
             'residence_city'=>$updaterequest->residence_city,
             'residence_country'=>$updaterequest->residence_country,
             'program'=>$program,
+            'paid'=>$updaterequest->paid,
+            'id_number'=>$updaterequest->id_number,
         ]);
-        return redirect('managment')->with(['warning'=>"لا يوجد سجل للطالب في قاعدة البيانات"]);
+        //return $updaterequest->paid;
+        return redirect('managment')->with(['success'=>"تم تعديل سجل الطالب في قاعدة البيانات"]);
     }
 
 
@@ -72,13 +75,14 @@ class AdminController extends Controller
     protected function getrules(){
         return $rules=[
              'first_name'=>'required|alpha',
-             'last_name'=>'required|string',
-             'father_name'=>'required|string',
-             'mother_name'=>'string',
+             'last_name'=>'required|alpha',
+             'father_name'=>'required|alpha',
+             'mother_name'=>'alpha',
              'birthday'=>'required|date',
              'birth_country'=>'required',
              'nationality'=>'required',
              'phone'=>'required',
+             'id_number'=>'required|number',
              
          
  
