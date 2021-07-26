@@ -15,6 +15,14 @@ class CreateStudentEducationsTable extends Migration
     {
         Schema::create('student_educations', function (Blueprint $table) {
             $table->id();
+            $table->set('edu_type',['1','2','3','4'])->comment('1 meaning secondary and 2 lisans 3 master 4 transcript');
+            $table->string('issued_country')->nullable(false);
+            $table->string('issued_authority');
+            $table->string('college');
+            $table->date('issued_date');
+            $table->float('score',4,2);
+            $table->string('path')->nullable(false);
+            $table->foreignId('student_id')->constrained('students') ;
             $table->timestamps();
         });
     }

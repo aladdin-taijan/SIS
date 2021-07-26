@@ -15,6 +15,9 @@ class CreateStudentDocumentsTable extends Migration
     {
         Schema::create('student_documents', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id')->constrained('students');
+            $table->string('path');
+            $table->set('type',['1','2']);
             $table->timestamps();
         });
     }
