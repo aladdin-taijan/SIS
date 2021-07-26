@@ -22,9 +22,13 @@ use App\Http\Controllers\StudentDocumentsController;
 //     return view('welcome');
 // });
 Route::get('/', [StudentController::class, 'create'])->name('info');
+Route::post('/', [StudentController::class, 'store']);
 Route::get('/edu', [StudentEducationsController::class, 'create'])->name('edu');
+Route::post('/edu', [StudentEducationsController::class, 'store']);
 Route::get('/rp', [RegisteredProgramsController::class, 'create'])->name('rp');
+Route::post('/rp', [RegisteredProgramsController::class, 'store']);
 Route::get('/doc', [StudentDocumentsController::class, 'create'])->name('doc');
+Route::post('/doc', [StudentDocumentsController::class, 'store']);
 
 // Vue Auth routes
 //Auth::routes();
@@ -44,7 +48,3 @@ Route::post('update/{id}',[AdminController::class,'update'])->name('update');
 Route::get('/managment/show', [AdminController::class,'show']);
 
 });
-
-
-
-

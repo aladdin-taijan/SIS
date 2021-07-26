@@ -14,7 +14,8 @@
 
         <div class="col-md-12 col-lg-12">
           <h4 class="mb-3">المعلومات الشخصية للطالب</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate action="{{ route('') }}" method="post" >
+            @csrf
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">الاسم الأول</label>

@@ -10,5 +10,14 @@ class StudentController extends Controller
     public function create(){
         return view('student/info');
     }
-    
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+
+        ]);
+
+        $request->posts()->create($request->only('body'));
+
+        return back();
+    }
 }
