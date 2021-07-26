@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class StudentDocuments extends Model
 {
     use HasFactory;
+
+    protected $table ="student_documents";
+
+    protected $fillable=[
+        'path','type',
+    ];
+
+    protected $hidden=['created_at','updated_at'];
 }
