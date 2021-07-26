@@ -7,5 +7,9 @@ use Illuminate\Http\Request;
 class StudentDocumentsController extends Controller
 {
     //
-    public function create(){}
+   
+        public function create(){
+            return view('student/documents');
+        }
+
 }

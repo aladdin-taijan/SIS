@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\managment\AdminController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentEducationsController;
+use App\Http\Controllers\RegisteredProgramsController;
+use App\Http\Controllers\StudentDocumentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +18,13 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', [StudentController::class, 'create'])->name('info');
+Route::get('/edu', [StudentEducationsController::class, 'create'])->name('edu');
+Route::get('/rp', [RegisteredProgramsController::class, 'create'])->name('rp');
+Route::get('/doc', [StudentDocumentsController::class, 'create'])->name('doc');
 
 // Vue Auth routes
 //Auth::routes();

@@ -10,4 +10,5 @@ class StudentController extends Controller
     public function create(){
         return view('student/info');
     }
+    
 }
