@@ -36,11 +36,20 @@
 <link href="{{asset('css/form-validation.css')}}" rel="stylesheet">
   </head>
   <body class="bg-light">
-
+    <div class="container">
+        <main>
 @yield('content')
-
+</main>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">&copy; 2021-2017 أكاديمية خبرات</p>
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="#">سياسة الخصوصية</a></li>
+    <li class="list-inline-item"><a href="#">اتفاقية الاستخدام</a></li>
+    <li class="list-inline-item"><a href="#">الدعم الفني</a></li>
+  </ul>
+</footer>
+</div>
   <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
-
   <script src="{{asset('js/form-validation.js')}}"></script>
 </body>
 </html>

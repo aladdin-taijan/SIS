@@ -2,8 +2,7 @@
 
 @section('content')
 
-<div class="container">
-    <main>
+
       <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="{{asset('images/khibrat-logo.png')}}" alt="أكاديمية خبرات">
         <h2>نموذج تقديم الطلب</h2>
@@ -14,7 +13,7 @@
 
         <div class="col-md-12 col-lg-12">
           <h4 class="mb-3">البرامج التي ترغب في دراستها</h4>
-          <form class="needs-validation" novalidate action="{{ route('posts') }}" method="post" >
+          <form class="needs-validation" novalidate action="{{ route('rp') }}" method="post" >
             @csrf
 
             <div class="row g-3">
@@ -46,14 +45,5 @@
           </form>
         </div>
       </div>
-    </main>
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2021-2017 أكاديمية خبرات</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">سياسة الخصوصية</a></li>
-        <li class="list-inline-item"><a href="#">اتفاقية الاستخدام</a></li>
-        <li class="list-inline-item"><a href="#">الدعم الفني</a></li>
-      </ul>
-    </footer>
-  </div>
+ 
 @endsection

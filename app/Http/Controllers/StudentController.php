@@ -16,8 +16,8 @@ class StudentController extends Controller
 
         ]);
 
-        $request->posts()->create($request->only('body'));
+        // $request->posts()->create($request->only('body'));
 
-        return back();
+        return redirect()->route('edu');
     }
 }

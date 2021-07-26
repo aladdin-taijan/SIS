@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentEducationsController;
 use App\Http\Controllers\RegisteredProgramsController;
 use App\Http\Controllers\StudentDocumentsController;
+use App\Http\Controllers\SummaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::get('/rp', [RegisteredProgramsController::class, 'create'])->name('rp');
 Route::post('/rp', [RegisteredProgramsController::class, 'store']);
 Route::get('/doc', [StudentDocumentsController::class, 'create'])->name('doc');
 Route::post('/doc', [StudentDocumentsController::class, 'store']);
+Route::get('/summary', [SummaryController::class, 'index'])->name('summary');
+
 
 // Vue Auth routes
 //Auth::routes();
