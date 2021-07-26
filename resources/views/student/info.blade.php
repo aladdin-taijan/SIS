@@ -24,10 +24,10 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">الاسم الأخير</label>
+                <label for="firstName" class="form-label">الكنية</label>
                 <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  يرجى إدخال اسم أول صحيح.
+                  يرجى إدخال الكنية بشكل صحيح.
                 </div>
               </div>
 
@@ -46,67 +46,77 @@
                 </div>
               </div>
 
-              <div class="col-12">
+              <div class="col-6">
                 <label for="email" class="form-label">البريد الإلكتروني</label>
                 <input type="email" class="form-control" id="email" placeholder="you@example.com">
                 <div class="invalid-feedback">
-                  يرجى إدخال عنوان بريد إلكتروني صحيح لتصلكم تحديثات الشحن.
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">الجنسية</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
+                  يرجى إدخال عنوان بريد إلكتروني صحيح .
                 </div>
               </div>
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">رقم الهاتف</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
+                  يرجى إدخال رقم هاتف صحيح.
                 </div>
               </div>
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">الجنسية</label>
+                <select  class="form-select" id="nationality" placeholder="" value="" required>
+                  <option >اختر الجنسية</option>
+                      @foreach ($country as $countries )
+                          <option value="{{ $countries }}">{{ $countries }}</option>
+                      @endforeach
+                  </select> 
+                <div class="invalid-feedback">
+                  يرجى اختيار الجنسية.
+                </div>
+              </div>
+              
 
               <div class="col-sm-6">
-                <label for="lastName" class="form-label">الرقم الشخصي</label>
+                <label for="lastName" class="form-label">رقم جواز السفر / الرقم الوطني</label>
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
+                  يرجى إدخال رقم جواز السفر أو الرقم الوطني بشكل صحيح.
                 </div>
               </div>
 
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">تاريخ الميلاد</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <input type="date" class="form-control" id="lastName" placeholder="" value="" required>
                 <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
+                  يرجى إدخال تاريخ ميلاد صحيح.
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <label for="country" class="form-label">بلد الميلاد</label>
                 <select class="form-select" id="country" required>
                   <option value="">اختر...</option>
-                  <option>الولايات المتحدة الأمريكية</option>
+                      @foreach ($country as $countries )
+                          <option value="{{ $countries }}">{{ $countries }}</option>
+                      @endforeach
                 </select>
                 <div class="invalid-feedback">
                   يرجى اختيار بلد صحيح.
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <label for="country" class="form-label">بلد الإقامة</label>
                 <select class="form-select" id="country" required>
                   <option value="">اختر...</option>
-                  <option>الولايات المتحدة الأمريكية</option>
+                  @foreach ($country as $countries )
+                          <option value="{{ $countries }}">{{ $countries }}</option>
+                      @endforeach
                 </select>
                 <div class="invalid-feedback">
                   يرجى اختيار بلد صحيح.
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <label for="state" class="form-label">منطقة الإقامة</label>
                 <select class="form-select" id="state" required>
                   <option value="">اختر...</option>
@@ -121,17 +131,10 @@
                 <label for="address" class="form-label">العنوان الكامل</label>
                 <input type="text" class="form-control" id="address" placeholder="1234 الشارع الأول" required>
                 <div class="invalid-feedback">
-                  يرجى إدخال عنوان الشحن الخاص بك.
+                  يرجى إدخال العنوان الخاص بك.
                 </div>
               </div>
-              <div class="col-12">
-                <label for="address" class="form-label">الرقم الجامعي</label>
-                <input type="text" class="form-control" id="address" placeholder=" الشارع الأول" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال عنوان الشحن الخاص بك.
-                </div>
-              </div>
-
+              
             </div>
             <hr class="my-4">
             <button class="w-100 btn btn-primary btn-lg" type="submit">التالي</button>
