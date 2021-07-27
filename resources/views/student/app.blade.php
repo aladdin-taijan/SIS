@@ -30,7 +30,66 @@
         }
       }
     </style>
+ <style>
+    .timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 600px;
+  margin: 0px auto;
+  counter-reset: step;
+}
 
+.timeline li {
+  float: right;
+  text-align: center;
+  width: 150px;
+  position: relative;
+}
+
+.timeline li:after {
+  content: counter(step);
+  counter-increment: step;
+  line-height: 35px;
+  width: 35px;
+  height: 35px;
+  display: block;
+  border-radius: 100%;
+  border: 1px solid #CCC;
+  margin: 0 auto 15px auto;
+  background: #fff;
+}
+
+.timeline li:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #DDD;
+  display: block;
+  position: absolute;
+  top: 39px;
+  right: 50%;
+  z-index: -1;
+}
+
+.timeline li:last-child:before {
+  content: none;
+}
+
+.timeline li.active {
+  color: #8cc413;
+}
+
+.timeline li:first-child:after {
+  border-color: #8cc413;
+  color: black;
+}
+.timeline li.active:after {
+  background: #8cc413;
+  color: black;
+}
+
+</style>
 
     <!-- Custom styles for this template -->
 <link href="{{asset('css/form-validation.css')}}" rel="stylesheet">
@@ -41,7 +100,10 @@
 
     <div class="container">
         <main>
+
+
 @yield('content')
+
 </main>
 <footer class="my-5 pt-5 text-muted text-center text-small">
   <p class="mb-1">&copy; 2021-2017 أكاديمية خبرات</p>
