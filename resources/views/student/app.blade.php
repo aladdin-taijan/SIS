@@ -36,6 +36,9 @@
 <link href="{{asset('css/form-validation.css')}}" rel="stylesheet">
   </head>
   <body class="bg-light">
+   
+
+
     <div class="container">
         <main>
 @yield('content')

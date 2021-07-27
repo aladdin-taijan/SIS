@@ -18,10 +18,11 @@ use App\Http\Controllers\SummaryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+/*
+ Route::get('/', function () {
+     return view('welcome');
+ });
+ */
 Route::get('/', [StudentController::class, 'create'])->name('info');
 Route::post('/', [StudentController::class, 'store']);
 Route::get('/edu', [StudentEducationsController::class, 'create'])->name('edu');
