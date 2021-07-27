@@ -10,6 +10,11 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout-rtl/">
 
+    <!--Jquery-->
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
 
 
     <!-- Bootstrap core CSS -->
@@ -93,6 +98,7 @@
 
     <!-- Custom styles for this template -->
 <link href="{{asset('css/form-validation.css')}}" rel="stylesheet">
+@yield('script')
   </head>
   <body class="bg-light">
    
@@ -106,7 +112,7 @@
 
 </main>
 <footer class="my-5 pt-5 text-muted text-center text-small">
-  <p class="mb-1">&copy; 2021-2017 أكاديمية خبرات</p>
+  <p class="mb-1">&copy; 2021-2019 أكاديمية خبرات</p>
   <ul class="list-inline">
     <li class="list-inline-item"><a href="#">سياسة الخصوصية</a></li>
     <li class="list-inline-item"><a href="#">اتفاقية الاستخدام</a></li>

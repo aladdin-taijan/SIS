@@ -29,6 +29,10 @@ class CreateStudentsTable extends Migration
             $table->string('residence_city');
             $table->string('full_address');
             $table->string('university_id');
+            $table->string('student_number');
+            $table->set('paid',['0','1'])->default('0');
+            $table->set('gender',['ذكر','أنثى']);
+            $table->set('matrial',['متزوج','أعزب','أرمل','مطلق']);
             $table->timestamps();
         });
     }

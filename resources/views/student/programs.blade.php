@@ -1,4 +1,23 @@
 @extends('student/app')
+@section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  window.console && console.log('Document ready called');
+  $('#master').click(function(event){
+      // http://api.jquery.com/event.preventdefault/
+      window.console && console.log("Adding education ");
+      $('#master-select').append(
+          '<div id="position"> \
+          <p>Year: <input type="number" name="year" value="" /> \
+          <input type="button" value="-" \
+              onclick="$(\'#position\').remove();return false;"></p> \
+          <textarea name="desc" rows="8" cols="80"></textarea>\
+          </div>');
+  });
+});
+  </script>
+@endsection
 
 @section('content')
 
@@ -29,25 +48,34 @@
             <div class="row g-3">
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                    <label class="form-check-label " for="credit"> برنامج الليسانس</label>
+                    <input id="lisans" name="program" type="radio" class="form-check-input" checked >
+                    <label class="form-check-label " for="lisans"> برنامج الليسانس</label>
                   </div>
                 </div>
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input id="cash" name="paymentMethod" type="radio" class="form-check-input" required>
-                    <label class="form-check-label" for="cash">برنامج الماجستير</label>
+                    <input id="master" name="program" type="radio"  class="form-check-input" >
+                    <label class="form-check-label" for="master">برنامج الماجستير</label>
+                  </div>
+                </div>
+                
+                <div class="col-sm-6" id="master-select">
+                  
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-check">
+                    <input id="phd" name="program" type="radio" class="form-check-input" >
+                    <label class="form-check-label" for="phd">برنامج الدكتوراه</label>
                   </div>
                 </div>
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                    <label class="form-check-label" for="paypal">برنامج الدكتوراه</label>
+                    <input type="radio" name="istekmal" id="istekmal" class="form-check-input" >
+                    <label for="istekmal" class="form-check-label">برنامج الاستكمال</label>
                   </div>
                 </div>
-                <div class="col-sm-6"></div>
 
             </div>
             <hr class="my-4">

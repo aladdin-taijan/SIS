@@ -60,6 +60,30 @@
                   يرجى إدخال اسم عائلة صحيح.
                 </div>
               </div>
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">الجنس</label>
+                <select type="text" class="form-select" id="lastName" placeholder="" value="" required>
+                  <option>اختر ...</option>
+                  <option value="ذكر">ذكر</option>
+                  <option value="أنثى">أنثى</option>
+                </select>
+                <div class="invalid-feedback">
+                  يرجى إختيار قيمة
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">الحالة الاجتماعية</label>
+                <select type="text" class="form-select" id="lastName" placeholder="" value="" required>
+                  <option>اختر ...</option>
+                  <option value="أعزب">أعزب/عزباء</option>
+                  <option value="متزوج">متزوج/متزوجة</option>
+                  <option value="مطلق">مطلق/مطلقة</option>
+                  <option value="أرمل">أرمل</option>
+                </select>
+                <div class="invalid-feedback">
+                  يرجى إختيار قيمة
+                </div>
+              </div>
 
               <div class="col-6">
                 <label for="email" class="form-label">البريد الإلكتروني</label>
