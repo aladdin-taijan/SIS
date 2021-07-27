@@ -1,16 +1,31 @@
 @extends('student/app')
 
+
+
 @section('content')
 
- 
+
       <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="{{asset('images/khibrat-logo.png')}}" alt="أكاديمية خبرات">
         <h2>نموذج تقديم الطلب</h2>
         <p class="lead">فيما يلي مثال على نموذج تم إنشاؤه بالكامل باستخدام عناصر تحكم النموذج في Bootstrap. لكل مجموعة نماذج مطلوبة حالة تحقق يمكن تشغيلها بمحاولة إرسال النموذج دون استكماله.</p>
-      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class='timeline'>
+                <li class='active'>البيانات الشخصية</li>
+                <li>الخطوة الثانية</li>
+                <li>الخطوة الثالثة</li>
+                <li>الخطوة الرابعة</li>
+              </ul>
+        </div>
+    </div>
+
+
+
+
 
       <div class="row g-3">
-
         <div class="col-md-12 col-lg-12">
           <h4 class="mb-3">المعلومات الشخصية للطالب</h4>
           <form class="needs-validation" novalidate action="{{ route('info') }}" method="post" >
@@ -67,12 +82,12 @@
                       @foreach ($country as $countries )
                           <option value="{{ $countries }}">{{ $countries }}</option>
                       @endforeach
-                  </select> 
+                  </select>
                 <div class="invalid-feedback">
                   يرجى اختيار الجنسية.
                 </div>
               </div>
-              
+
 
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">رقم جواز السفر / الرقم الوطني</label>
@@ -134,7 +149,7 @@
                   يرجى إدخال العنوان الخاص بك.
                 </div>
               </div>
-              
+
             </div>
             <hr class="my-4">
             <button class="w-100 btn btn-primary btn-lg" type="submit">التالي</button>
