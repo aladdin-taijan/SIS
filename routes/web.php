@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\managment\AdminController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentEducationsController;
-use App\Http\Controllers\RegisteredProgramsController;
+use App\Http\Controllers\MasterSelectionsController;
 use App\Http\Controllers\StudentDocumentsController;
 use App\Http\Controllers\SummaryController;
 
@@ -24,11 +24,11 @@ use App\Http\Controllers\SummaryController;
  });
  */
 Route::get('/', [StudentController::class, 'create'])->name('info');
-Route::post('/', [StudentController::class, 'store']);
+Route::post('/', [StudentController::class, 'store'])->name('storeinfo');
 Route::get('/edu', [StudentEducationsController::class, 'create'])->name('edu');
 Route::post('/edu', [StudentEducationsController::class, 'store']);
-Route::get('/rp', [RegisteredProgramsController::class, 'create'])->name('rp');
-Route::post('/rp', [RegisteredProgramsController::class, 'store']);
+Route::get('/rp/{id}', [MasterSelectionsController::class, 'create']);
+Route::post('/rp/{id}', [MasterSelectionsController::class, 'store'])->name('storerp');
 Route::get('/doc', [StudentDocumentsController::class, 'create'])->name('doc');
 Route::post('/doc', [StudentDocumentsController::class, 'store']);
 Route::get('/summary', [SummaryController::class, 'index'])->name('summary');

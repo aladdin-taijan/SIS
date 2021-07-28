@@ -28,11 +28,13 @@ class CreateStudentsTable extends Migration
             $table->string('residence_country');
             $table->string('residence_city');
             $table->string('full_address');
-            $table->string('university_id');
+            $table->string('university_id')->nullable(true);
+            $table->set('program',['lisans','master','PHD','istkmal'])->nullable(true);
             $table->string('student_number');
             $table->set('paid',['0','1'])->default('0');
             $table->set('gender',['ذكر','أنثى']);
             $table->set('matrial',['متزوج','أعزب','أرمل','مطلق']);
+            $table->set('termapprove',['0','1'])->default('1');
             $table->timestamps();
         });
     }

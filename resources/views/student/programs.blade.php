@@ -84,22 +84,24 @@ $(document).ready(function(){
 
       <div class="row g-3">
 
+        
+
         <div class="col-md-12 col-lg-12">
           <h4 class="mb-3">البرامج التي ترغب في دراستها</h4>
-          <form class="needs-validation" novalidate action="{{ route('rp') }}" method="post" >
+          <form class="needs-validation" novalidate action="{{ route('storerp',$studentid) }}" method="post" >
             @csrf
 
             <div class="row g-3">
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input id="lisans" name="program" type="radio" class="form-check-input"   onclick="$('#position').remove();count=0; ">
+                    <input id="lisans" name="program" value="lisans" type="radio" class="form-check-input"   onclick="$('#position').remove();count=0; ">
                     <label class="form-check-label " for="lisans"> برنامج الليسانس</label>
                   </div>
                 </div>
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input id="master" name="program" type="radio"  class="form-check-input" >
+                    <input id="master" name="program" type="radio" value="master" class="form-check-input" >
                     <label class="form-check-label" for="master">برنامج الماجستير</label>
                   </div>
                 </div>
@@ -111,20 +113,21 @@ $(document).ready(function(){
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input id="phd" name="program" type="radio" class="form-check-input" onclick="$('#position').remove();count=0; ">
+                    <input id="phd" name="program" type="radio" class="form-check-input" value="PHD" onclick="$('#position').remove();count=0; ">
                     <label class="form-check-label" for="phd">برنامج الدكتوراه</label>
                   </div>
                 </div>
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input type="radio" name="program" id="istekmal" class="form-check-input" onclick="$('#position').remove();count=0; ">
+                    <input type="radio" name="program" id="istekmal" class="form-check-input" value="istkmal" onclick="$('#position').remove();count=0; ">
                     <label for="istekmal" class="form-check-label">برنامج الاستكمال</label>
                   </div>
                 </div>
 
             </div>
             <hr class="my-4">
+            
             <button class="w-100 btn btn-primary btn-lg" type="submit">التالي</button>
           </form>
         </div>
