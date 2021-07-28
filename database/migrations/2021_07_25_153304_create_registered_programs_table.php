@@ -13,8 +13,13 @@ class CreateRegisteredProgramsTable extends Migration
      */
     public function up()
     {
-        Schema::create('registered_programs', function (Blueprint $table) {
+        Schema::create('master_selections', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id')->constrained('students') ;
+            $table->string('selection1');
+            $table->string('selection2');
+            $table->string('selection3');
+            $table->string('selection4');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateRegisteredProgramsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registered_programs');
+        Schema::dropIfExists('master_selections');
     }
 }

@@ -11,7 +11,7 @@ class Students extends Model
 
     protected $table = "students";
 
-    protected $fillable=['first_name','last_name','father_name','mother_name','nationality','phone',
+    protected $fillable=['first_name','last_name','father_name','mother_name','nationality','phone','matrial','gender',
                             'email','id_number','birthday','birth_country','residence_country','residence_city','full_address','university_id','program','paid',
 
     ];
