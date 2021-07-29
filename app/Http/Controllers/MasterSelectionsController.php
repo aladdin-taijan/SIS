@@ -18,8 +18,6 @@ class MasterSelectionsController extends Controller
     {
        $student=Students::find($studentid);
 
-       //return $request;
-
        $student->update([
         'program'=>$request->program,
        ]);
@@ -35,6 +33,6 @@ class MasterSelectionsController extends Controller
         }
 
 
-        return redirect()->route('doc/'.$request->studentid.'/'.$request->program);
+        return redirect('edu/'.$studentid.'/'.$request->program);
     }
 }

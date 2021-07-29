@@ -14,7 +14,7 @@ $(document).ready(function(){
       }
       count++;
 
-      window.console && console.log("Adding education ");
+      window.console && console.log("Adding selections ");
       $('#master-select').append(
           '<div id="position" class="col-sm-6 mb-3"> \
           <p>الرغبة اﻷولى: <select  name="selection1" id="selection1" onchange="if ($(this).val()==$(\'#selection4\').val() || $(this).val()==$(\'#selection2\').val() || $(this).val()==$(\'#selection3\').val() ){alert(\'لا يمكن اختيار نفس الرغبة مرتين\'); $(this).prop(\'selectedIndex\',-1); }" /> \
@@ -113,7 +113,7 @@ $(document).ready(function(){
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
                   <div class="form-check">
-                    <input id="phd" name="program" type="radio" class="form-check-input" value="PHD" onclick="$('#position').remove();count=0; ">
+                    <input id="phd" name="program" type="radio" class="form-check-input" value="phd" onclick="$('#position').remove();count=0; ">
                     <label class="form-check-label" for="phd">برنامج الدكتوراه</label>
                   </div>
                 </div>

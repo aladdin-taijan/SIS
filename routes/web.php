@@ -29,7 +29,7 @@ Route::post('/', [StudentController::class, 'store'])->name('storeinfo');
 Route::get('/rp/{id}', [MasterSelectionsController::class, 'create']);
 Route::post('/rp/{id}', [MasterSelectionsController::class, 'store'])->name('storerp');
 
-Route::get('/edu', [StudentEducationsController::class, 'create'])->name('edu');
+Route::get('/edu/{id}/{program}', [StudentEducationsController::class, 'create'])->name('edu')->where(['id' => '[0-9]+', 'program' => '[a-z]+']);
 Route::post('/edu', [StudentEducationsController::class, 'store']);
 
 Route::get('/doc/{id}/{program}', [StudentDocumentsController::class, 'create'])->name('doc');

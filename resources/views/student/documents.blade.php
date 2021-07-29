@@ -1,4 +1,7 @@
 @extends('student/app')
+@section('script')
+
+@endsection
 
 @section('content')
       <div class="py-5 text-center">
@@ -121,8 +124,8 @@
 
         <div class="col-sm-6">
             <label for="transcript" class="form-label">صورة كشف العلامات</label>
-            <input type="file" class="form-control" id="transcript" name="transcript" placeholder="" value="" required>
-            <div class="invalid-feedback">
+            <input type="file" class="form-control" id="transcript" name="transcript" placeholder="" value=""  onchange="validate_fileupload(this.id,'trans_feedback');" required>
+            <div id="trans_feedback">
             يرجى تحميل صورة   كشف العلامات
             </div>
         </div>
@@ -135,9 +138,62 @@
 
             </div>
             <hr class="my-4">
-            <button class="w-100 btn btn-primary btn-lg" type="submit">ارسال</button>
+            <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="return valid_form();" >ارسال</button>
           </form>
         </div>
       </div>
+    
+
+      <script text="text/javascript">
+      
+        var valid = true;
+        
+        function validate_fileupload(id,msg)
+        {
+          window.console && console.log("hi here3");
+            var el = document.getElementById(msg);
+            var fileNams = document.getElementById(id);
+            
+            var allowed_extensions = new Array("jpg","png","gif","pdf","jpeg");
+        
+            var fileSize=fileNams.files[0].size;
+            var file_extension=fileNams.files[0].name.split('.').pop().toLowerCase();
+            var n = allowed_extensions.includes(file_extension);
+
+            
+            window.console && console.log(el);
+            
+            
+            
+            
+            if(fileSize > 2097152){
+                    valid = false ;
+                    el.style.color='red';
+                    el.innerHTML="حجم الملف أكبر من 2ميغا بايت";
+                    return ;
+            }
+        
+            if(n==false)
+                {
+                    
+                    valid = false; // valid file extension
+                    el.style.color='red';
+                    el.innerHTML = "نوع الملف غير مسموح";
+                    
+                    return;
+                }
+                
+            
+            
+            el.innerHTML="الملف جاهز للتحميل";
+            el.style.color='green';
+            valid = true;
+        }
+      
+        function valid_form()
+                  {
+                      return valid;
+                  }
+        </script>
 
 @endsection
