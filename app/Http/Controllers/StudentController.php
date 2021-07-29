@@ -17,13 +17,14 @@ class StudentController extends Controller
         $country = CountryListFacade::getlist('ar');
         return view('student/info',compact('country'));
     }
+
     public function store(Request $request)
     {
-        
+
         $rules = $this->getrules();
         $messages= $this->getMSG();
-        
-        
+
+
         //valudate data
         $validate = validator::make($request->all(),$rules,$messages);
 
@@ -41,44 +42,28 @@ class StudentController extends Controller
         else $last_student_number = $last_student_number + 1;
 
         //return request();
-        
+
        $data=Students::create([
             'student_number' => $last_student_number,
             'first_name'=>$request->first_name,
-            
             'last_name'=>$request->last_name,
-            
-            
             'father_name'=>$request->father_name,
-            
             'mother_name'=>$request->mother_name,
             'birthday'=>$request->birthday,
             'birth_country'=>$request->birth_country,
-            
             'nationality'=>$request->nationality,
             'email'=>$request->email,
             'phone'=>$request->phone,
-            
-            
             'gender'=>$request->gender,
             'matrial'=>$request->matrial,
-            
             'id_number'=>$request->id_number,
             'residence_country'=>$request->residence_country,
             'residence_city'=>$request->residence_city,
             'full_address'=>$request->address,
-            
-            
-
         ]);
 
-        
-        return redirect('rp?sid='.$data->id);
-       
-     
 
-        // $request->posts()->create($request->only('body'));
+        return redirect('rp/'.$data->id);
 
-        //return redirect()->route('edu');
     }
 }

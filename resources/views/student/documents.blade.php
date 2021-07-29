@@ -1,8 +1,6 @@
 @extends('student/app')
 
 @section('content')
-
-
       <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="{{asset('images/khibrat-logo.png')}}" alt="أكاديمية خبرات">
         <h2>نموذج تقديم الطلب</h2>
@@ -22,129 +20,122 @@
       <div class="row g-3">
 
         <div class="col-md-12 col-lg-12">
-          <h4 class="mb-3">المعلومات الشخصية للطالب</h4>
-          <form class="needs-validation" novalidate action="{{ route('doc') }}" method="post" >
+          <h4 class="mb-3"> تحميل الوثائق  </h4>
+          <form class="needs-validation" novalidate action="{{ route('doc',[$studentid,$program]) }}" method="post" >
             @csrf
             <div class="row g-3">
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">الاسم الأول</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <label for="personalPhoto" class="form-label">الصورة الشخصية</label>
+                <input type="file" class="form-control" id="personalPhoto" name="personalPhoto" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   يرجى إدخال اسم أول صحيح.
                 </div>
               </div>
               <div class="col-sm-6">
-                <label for="firstName" class="form-label">الاسم الأخير</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <label for="id" class="form-label">صورة الهوية أو جواز السفر</label>
+                <input type="file" class="form-control" id="id" name="ids[]" placeholder="" value="" required multiple>
                 <div class="invalid-feedback">
                   يرجى إدخال اسم أول صحيح.
                 </div>
               </div>
 
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">اسم الأب</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">اسم الأم</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
-                </div>
-              </div>
+@switch($program)
+    @case('lisans')
+        <div class="col-sm-6">
+            <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+            <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
+            <div class="invalid-feedback">
+            يرجى تحميل صورة الشهادة الثانوية
+            </div>
+        </div>
+        @break
+    @case('master')
+        <div class="col-sm-6">
+            <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+            <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
+            <div class="invalid-feedback">
+            يرجى تحميل صورة الشهادة الثانوية
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="lisans" class="form-label"> صورة الشهادة الجامعية  </label>
+            <input type="file" class="form-control" id="lisans" name="lisans" placeholder="" value="" required>
+            <div class="invalid-feedback">
+            يرجى تحميل صورة الشهادة الجامعية
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="transcript" class="form-label">صورة كشف العلامات</label>
+            <input type="file" class="form-control" id="transcript" name="transcript" placeholder="" value="" required>
+            <div class="invalid-feedback">
+            يرجى تحميل صورة   كشف العلامات
+            </div>
+        </div>
+        @break
+    @case('phd')
+    <div class="col-sm-6">
+        <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+        <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
+        <div class="invalid-feedback">
+        يرجى تحميل صورة الشهادة الثانوية
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <label for="lisans" class="form-label"> صورة الشهادة الجامعية  </label>
+        <input type="file" class="form-control" id="lisans" name="lisans" placeholder="" value="" required>
+        <div class="invalid-feedback">
+        يرجى تحميل صورة الشهادة الجامعية
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <label for="master" class="form-label"> صورة شهادة الماجستير  </label>
+        <input type="file" class="form-control" id="master" name="master" placeholder="" value="" required>
+        <div class="invalid-feedback">
+        يرجى تحميل صورة شهادة الماجستير
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <label for="lisansTranscript" class="form-label">صورة كشف العلامات ليسنس </label>
+        <input type="file" class="form-control" id="lisansTranscript" name="lisansTranscript" placeholder="" value="" required>
+        <div class="invalid-feedback">
+        يرجى تحميل صورة   كشف العلامات
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <label for="masterTranscript" class="form-label">صورة كشف العلامات الماجستير </label>
+        <input type="file" class="form-control" id="masterTranscript" name="masterTranscript" placeholder="" value="" required>
+        <div class="invalid-feedback">
+        يرجى تحميل صورة   كشف علامات الماجستير
+        </div>
+    </div>
+        @break
 
-              <div class="col-12">
-                <label for="email" class="form-label">البريد الإلكتروني</label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                <div class="invalid-feedback">
-                  يرجى إدخال عنوان بريد إلكتروني صحيح لتصلكم تحديثات الشحن.
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">الجنسية</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">رقم الهاتف</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
-                </div>
-              </div>
+        @case('istkmal')
+        <div class="col-sm-6">
+            <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+            <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
+            <div class="invalid-feedback">
+            يرجى تحميل صورة الشهادة الثانوية
+            </div>
+        </div>
 
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">الرقم الشخصي</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
-                </div>
-              </div>
+        <div class="col-sm-6">
+            <label for="transcript" class="form-label">صورة كشف العلامات</label>
+            <input type="file" class="form-control" id="transcript" name="transcript" placeholder="" value="" required>
+            <div class="invalid-feedback">
+            يرجى تحميل صورة   كشف العلامات
+            </div>
+        </div>
+        @break
+@endswitch
 
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">تاريخ الميلاد</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال اسم عائلة صحيح.
-                </div>
-              </div>
 
-              <div class="col-md-4">
-                <label for="country" class="form-label">بلد الميلاد</label>
-                <select class="form-select" id="country" required>
-                  <option value="">اختر...</option>
-                  <option>الولايات المتحدة الأمريكية</option>
-                </select>
-                <div class="invalid-feedback">
-                  يرجى اختيار بلد صحيح.
-                </div>
-              </div>
 
-              <div class="col-md-4">
-                <label for="country" class="form-label">بلد الإقامة</label>
-                <select class="form-select" id="country" required>
-                  <option value="">اختر...</option>
-                  <option>الولايات المتحدة الأمريكية</option>
-                </select>
-                <div class="invalid-feedback">
-                  يرجى اختيار بلد صحيح.
-                </div>
-              </div>
 
-              <div class="col-md-4">
-                <label for="state" class="form-label">منطقة الإقامة</label>
-                <select class="form-select" id="state" required>
-                  <option value="">اختر...</option>
-                  <option>كاليفورنيا</option>
-                </select>
-                <div class="invalid-feedback">
-                  يرجى اختيار اسم منطقة صحيح.
-                </div>
-              </div>
-
-              <div class="col-12">
-                <label for="address" class="form-label">العنوان الكامل</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 الشارع الأول" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال عنوان الشحن الخاص بك.
-                </div>
-              </div>
-              <div class="col-12">
-                <label for="address" class="form-label">الرقم الجامعي</label>
-                <input type="text" class="form-control" id="address" placeholder=" الشارع الأول" required>
-                <div class="invalid-feedback">
-                  يرجى إدخال عنوان الشحن الخاص بك.
-                </div>
-              </div>
 
             </div>
             <hr class="my-4">
-            <button class="w-100 btn btn-primary btn-lg" type="submit">التالي</button>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">ارسال</button>
           </form>
         </div>
       </div>

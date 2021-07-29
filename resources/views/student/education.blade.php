@@ -12,10 +12,10 @@
         <div class="col-sm-12">
             <ul class='timeline'>
                 <li >البيانات الشخصية</li>
-                <li>الخطوة الثانية</li>
-                <li class='active'>الخطوة الثالثة</li>
+                <li class='active'>الخطوة الثانية</li>
+                <li >الخطوة الثالثة</li>
                 <li>الخطوة الرابعة</li>
-                
+
               </ul>
         </div>
     </div>

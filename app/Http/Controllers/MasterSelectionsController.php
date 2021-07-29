@@ -17,25 +17,24 @@ class MasterSelectionsController extends Controller
     public function store(Request $request, $studentid)
     {
        $student=Students::find($studentid);
-       
+
        //return $request;
-       
+
        $student->update([
         'program'=>$request->program,
        ]);
 
        if ($request->program == "master"){
-       MasterSelections::create([
-        'student_id'=>$studentid,
-        'selection1'=>$request->selection1,
-        'selection2'=>$request->selection2,
-        'selection3'=>$request->selection3,
-        'selection4'=>$request->selection4,
-       ]);
+            MasterSelections::create([
+                'student_id'=>$studentid,
+                'selection1'=>$request->selection1,
+                'selection2'=>$request->selection2,
+                'selection3'=>$request->selection3,
+                'selection4'=>$request->selection4,
+            ]);
         }
 
-        // $request->posts()->create($request->only('body'));
 
-        //return redirect()->route('doc');
+        return redirect()->route('doc/'.$request->studentid.'/'.$request->program);
     }
 }

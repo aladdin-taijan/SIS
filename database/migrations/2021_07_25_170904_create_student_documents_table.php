@@ -17,7 +17,7 @@ class CreateStudentDocumentsTable extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained('students');
             $table->string('path');
-            $table->set('type',['1','2']);
+            $table->string('name');
             $table->timestamps();
         });
     }

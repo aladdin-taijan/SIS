@@ -12,7 +12,7 @@ class StudentDocuments extends Model
     protected $table ="student_documents";
 
     protected $fillable=[
-        'path','type',
+        'path','name',
     ];
 
     protected $hidden=['created_at','updated_at'];

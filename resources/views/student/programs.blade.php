@@ -13,7 +13,7 @@ $(document).ready(function(){
         return;
       }
       count++;
-    
+
       window.console && console.log("Adding education ");
       $('#master-select').append(
           '<div id="position" class="col-sm-6 mb-3"> \
@@ -48,10 +48,10 @@ $(document).ready(function(){
           </div>');
   });
 
- 
-  
+
+
   $("#selection2").change(function(event){
-    
+
 
     if($(this).val() == $('#selection1').val() ){
       alert("hifdfd");
@@ -59,7 +59,7 @@ $(document).ready(function(){
   });
 });
   </script>
-  
+
 @endsection
 
 @section('content')
@@ -75,7 +75,7 @@ $(document).ready(function(){
         <div class="col-sm-12">
             <ul class='timeline'>
                 <li >البيانات الشخصية</li>
-                <li class='active'>الخطوة الثانية</li>
+                <li   class='active'>الخطوة الثانية</li>
                 <li>الخطوة الثالثة</li>
                 <li>الخطوة الرابعة</li>
               </ul>
@@ -84,7 +84,7 @@ $(document).ready(function(){
 
       <div class="row g-3">
 
-        
+
 
         <div class="col-md-12 col-lg-12">
           <h4 class="mb-3">البرامج التي ترغب في دراستها</h4>
@@ -106,9 +106,9 @@ $(document).ready(function(){
                   </div>
                 </div>
                 <div class="col-sm-6"></div>
-                
+
                 <div class="col-sm-6" id="master-select">
-                  
+
                 </div>
                 <div class="col-sm-6"></div>
                 <div class="col-sm-6">
@@ -127,7 +127,7 @@ $(document).ready(function(){
 
             </div>
             <hr class="my-4">
-            
+
             <button class="w-100 btn btn-primary btn-lg" type="submit">التالي</button>
           </form>
         </div>

@@ -25,12 +25,16 @@ use App\Http\Controllers\SummaryController;
  */
 Route::get('/', [StudentController::class, 'create'])->name('info');
 Route::post('/', [StudentController::class, 'store'])->name('storeinfo');
-Route::get('/edu', [StudentEducationsController::class, 'create'])->name('edu');
-Route::post('/edu', [StudentEducationsController::class, 'store']);
+
 Route::get('/rp/{id}', [MasterSelectionsController::class, 'create']);
 Route::post('/rp/{id}', [MasterSelectionsController::class, 'store'])->name('storerp');
-Route::get('/doc', [StudentDocumentsController::class, 'create'])->name('doc');
-Route::post('/doc', [StudentDocumentsController::class, 'store']);
+
+Route::get('/edu', [StudentEducationsController::class, 'create'])->name('edu');
+Route::post('/edu', [StudentEducationsController::class, 'store']);
+
+Route::get('/doc/{id}/{program}', [StudentDocumentsController::class, 'create'])->name('doc');
+Route::post('/doc/{id}/{program}', [StudentDocumentsController::class, 'store']);
+
 Route::get('/summary', [SummaryController::class, 'index'])->name('summary');
 
 
