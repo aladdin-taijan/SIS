@@ -24,8 +24,11 @@
 
         <div class="col-md-12 col-lg-12">
           <h4 class="mb-3"> تحميل الوثائق  </h4>
-          <form class="needs-validation" novalidate action="{{ route('doc',[$studentid,$program]) }}" method="post" >
+          <form class="needs-validation" novalidate action="{{ route('doc',[$studentid,$program]) }}" method="post" enctype="multipart/form-data" >
+
+
             @csrf
+            <input type="hidden"  name="studentid" value="2" >
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="personalPhoto" class="form-label">الصورة الشخصية</label>
@@ -35,106 +38,102 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <label for="id" class="form-label">صورة الهوية أو جواز السفر</label>
-                <input type="file" class="form-control" id="id" name="ids[]" placeholder="" value="" required multiple>
+                <label for="ids" class="form-label">صورة الهوية أو جواز السفر</label>
+                <input type="file" class="form-control" id="ids" name="ids[]" placeholder="" value="" required multiple>
                 <div class="invalid-feedback">
                   يرجى إدخال اسم أول صحيح.
                 </div>
               </div>
 
-@switch($program)
-    @case('lisans')
-        <div class="col-sm-6">
-            <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
-            <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
-            <div class="invalid-feedback">
-            يرجى تحميل صورة الشهادة الثانوية
-            </div>
-        </div>
-        @break
-    @case('master')
-        <div class="col-sm-6">
-            <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
-            <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
-            <div class="invalid-feedback">
-            يرجى تحميل صورة الشهادة الثانوية
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <label for="lisans" class="form-label"> صورة الشهادة الجامعية  </label>
-            <input type="file" class="form-control" id="lisans" name="lisans" placeholder="" value="" required>
-            <div class="invalid-feedback">
-            يرجى تحميل صورة الشهادة الجامعية
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <label for="transcript" class="form-label">صورة كشف العلامات</label>
-            <input type="file" class="form-control" id="transcript" name="transcript" placeholder="" value="" required>
-            <div class="invalid-feedback">
-            يرجى تحميل صورة   كشف العلامات
-            </div>
-        </div>
-        @break
-    @case('phd')
-    <div class="col-sm-6">
-        <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
-        <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
-        <div class="invalid-feedback">
-        يرجى تحميل صورة الشهادة الثانوية
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <label for="lisans" class="form-label"> صورة الشهادة الجامعية  </label>
-        <input type="file" class="form-control" id="lisans" name="lisans" placeholder="" value="" required>
-        <div class="invalid-feedback">
-        يرجى تحميل صورة الشهادة الجامعية
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <label for="master" class="form-label"> صورة شهادة الماجستير  </label>
-        <input type="file" class="form-control" id="master" name="master" placeholder="" value="" required>
-        <div class="invalid-feedback">
-        يرجى تحميل صورة شهادة الماجستير
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <label for="lisansTranscript" class="form-label">صورة كشف العلامات ليسنس </label>
-        <input type="file" class="form-control" id="lisansTranscript" name="lisansTranscript" placeholder="" value="" required>
-        <div class="invalid-feedback">
-        يرجى تحميل صورة   كشف العلامات
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <label for="masterTranscript" class="form-label">صورة كشف العلامات الماجستير </label>
-        <input type="file" class="form-control" id="masterTranscript" name="masterTranscript" placeholder="" value="" required>
-        <div class="invalid-feedback">
-        يرجى تحميل صورة   كشف علامات الماجستير
-        </div>
-    </div>
-        @break
+                 @switch($program)
+                    @case('lisans')
+                        <div class="col-sm-6">
+                            <label for="secondary_lisans" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+                            <input type="file" class="form-control" id="secondary_lisans" name="secondary_lisans[]" placeholder="" value="" required multiple>
+                            <div class="invalid-feedback">
+                            يرجى تحميل صورة الشهادة الثانوية
+                            </div>
+                        </div>
+                        @break
+                    @case('master')
+                        <div class="col-sm-6">
+                            <label for="secondary_master" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+                            <input type="file" class="form-control" id="secondary_master" name="secondary_master[]" placeholder="" value="" required multiple>
+                            <div class="invalid-feedback">
+                            يرجى تحميل صورة الشهادة الثانوية
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="lisans_master" class="form-label"> صورة الشهادة الجامعية  </label>
+                            <input type="file" class="form-control" id="lisans_master" name="lisans_master[]" placeholder="" value="" required multiple>
+                            <div class="invalid-feedback">
+                            يرجى تحميل صورة الشهادة الجامعية
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="transcript_master" class="form-label">صورة كشف العلامات</label>
+                            <input type="file" class="form-control" id="transcript_master" name="transcript_master[]" placeholder="" value="" required multiple>
+                            <div class="invalid-feedback">
+                            يرجى تحميل صورة   كشف العلامات
+                            </div>
+                        </div>
+                        @break
+                    @case('phd')
+                    <div class="col-sm-6">
+                        <label for="secondary_phd" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+                        <input type="file" class="form-control" id="secondary_phd" name="secondary_phd[]" placeholder="" value="" required multiple>
+                        <div class="invalid-feedback">
+                        يرجى تحميل صورة الشهادة الثانوية
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lisans_phd" class="form-label"> صورة الشهادة الجامعية  </label>
+                        <input type="file" class="form-control" id="lisans_phd" name="lisans_phd[]" placeholder="" value="" required multiple>
+                        <div class="invalid-feedback">
+                        يرجى تحميل صورة الشهادة الجامعية
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="master_phd" class="form-label"> صورة شهادة الماجستير  </label>
+                        <input type="file" class="form-control" id="master_phd" name="master_phd[]" placeholder="" value="" required multiple>
+                        <div class="invalid-feedback">
+                        يرجى تحميل صورة شهادة الماجستير
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="lisansTranscript_phd" class="form-label">صورة كشف العلامات ليسنس </label>
+                        <input type="file" class="form-control" id="lisansTranscript_phd" name="lisansTranscript_phd[]" placeholder="" value="" required multiple>
+                        <div class="invalid-feedback">
+                        يرجى تحميل صورة   كشف العلامات
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="masterTranscript_phd" class="form-label">صورة كشف العلامات الماجستير </label>
+                        <input type="file" class="form-control" id="masterTranscript_phd" name="masterTranscript_phd[]" placeholder="" value="" required multiple>
+                        <div class="invalid-feedback">
+                        يرجى تحميل صورة   كشف علامات الماجستير
+                        </div>
+                    </div>
+                        @break
 
-        @case('istkmal')
-        <div class="col-sm-6">
-            <label for="secondary" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
-            <input type="file" class="form-control" id="secondary" name="secondary" placeholder="" value="" required>
-            <div class="invalid-feedback">
-            يرجى تحميل صورة الشهادة الثانوية
-            </div>
-        </div>
+                        @case('istkmal')
+                        <div class="col-sm-6">
+                            <label for="secondary_istkmal" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
+                            <input type="file" class="form-control" id="secondary_istkmal" name="secondary_istkmal[]" placeholder="" value="" required multiple>
+                            <div class="invalid-feedback">
+                            يرجى تحميل صورة الشهادة الثانوية
+                            </div>
+                        </div>
 
-        <div class="col-sm-6">
-            <label for="transcript" class="form-label">صورة كشف العلامات</label>
-            <input type="file" class="form-control" id="transcript" name="transcript" placeholder="" value=""  onchange="validate_fileupload(this.id,'trans_feedback');" required>
-            <div id="trans_feedback">
-            يرجى تحميل صورة   كشف العلامات
-            </div>
-        </div>
-        @break
-@endswitch
-
-
-
-
+                        <div class="col-sm-6">
+                            <label for="transcript_istkmal" class="form-label">صورة كشف العلامات</label>
+                            <input type="file" class="form-control" id="transcript_istkmal" name="transcript_istkmal[]" placeholder="" value=""  onchange="validate_fileupload(this.id,'trans_feedback');" required multiple>
+                            <div id="trans_feedback">
+                            يرجى تحميل صورة   كشف العلامات
+                            </div>
+                        </div>
+                        @break
+                @endswitch
 
             </div>
             <hr class="my-4">
@@ -142,54 +141,54 @@
           </form>
         </div>
       </div>
-    
+
 
       <script text="text/javascript">
-      
+
         var valid = true;
-        
+
         function validate_fileupload(id,msg)
         {
           window.console && console.log("hi here3");
             var el = document.getElementById(msg);
             var fileNams = document.getElementById(id);
-            
+
             var allowed_extensions = new Array("jpg","png","gif","pdf","jpeg");
-        
+
             var fileSize=fileNams.files[0].size;
             var file_extension=fileNams.files[0].name.split('.').pop().toLowerCase();
             var n = allowed_extensions.includes(file_extension);
 
-            
+
             window.console && console.log(el);
-            
-            
-            
-            
+
+
+
+
             if(fileSize > 2097152){
                     valid = false ;
                     el.style.color='red';
                     el.innerHTML="حجم الملف أكبر من 2ميغا بايت";
                     return ;
             }
-        
+
             if(n==false)
                 {
-                    
+
                     valid = false; // valid file extension
                     el.style.color='red';
                     el.innerHTML = "نوع الملف غير مسموح";
-                    
+
                     return;
                 }
-                
-            
-            
+
+
+
             el.innerHTML="الملف جاهز للتحميل";
             el.style.color='green';
             valid = true;
         }
-      
+
         function valid_form()
                   {
                       return valid;
