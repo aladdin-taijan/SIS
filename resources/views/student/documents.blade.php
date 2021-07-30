@@ -28,7 +28,7 @@
 
 
             @csrf
-            <input type="hidden"  name="studentid" value="2" >
+          <input type="hidden"  name="studentid" value="{{$studentid}}" >
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="personalPhoto" class="form-label">الصورة الشخصية</label>
