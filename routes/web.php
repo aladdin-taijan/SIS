@@ -30,9 +30,9 @@ Route::get('/rp/{id}', [MasterSelectionsController::class, 'create']);
 Route::post('/rp/{id}', [MasterSelectionsController::class, 'store'])->name('storerp');
 
 Route::get('/edu/{id}/{program}', [StudentEducationsController::class, 'create'])->name('edu')->where(['id' => '[0-9]+', 'program' => '[a-z]+']);
-Route::post('/edu', [StudentEducationsController::class, 'store']);
+Route::post('/edu/{id}/{program}', [StudentEducationsController::class, 'store'])->name('storeedu');
 
-Route::get('/doc/{id}/{program}', [StudentDocumentsController::class, 'create'])->name('doc');
+Route::get('/doc/{id}/{program}', [StudentDocumentsController::class, 'create'])->name('doc')->where(['id' => '[0-9]+', 'program' => '[a-z]+']);
 Route::post('/doc/{id}/{program}', [StudentDocumentsController::class, 'store']);
 
 Route::get('/summary', [SummaryController::class, 'index'])->name('summary');
