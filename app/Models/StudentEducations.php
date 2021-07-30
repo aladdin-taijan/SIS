@@ -11,8 +11,8 @@ class StudentEducations extends Model
 
     protected $table = "student_educations";
 
-    protected $fillable=['edu_typp','issued_country','issued_authority','college','issued_date','score',
-                            'path',
+    protected $fillable=['edu_type','issued_country','issued_authority','college','issued_date','score',
+                            'path','student_id'
 
     ];
 
