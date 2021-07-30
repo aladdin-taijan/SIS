@@ -40,7 +40,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  max-width: 600px;
+  max-width: 770px;
   margin: 0px auto;
   counter-reset: step;
 }
@@ -101,7 +101,7 @@
 @yield('script')
   </head>
   <body class="bg-light">
-   
+
 
 
     <div class="container">

@@ -7,6 +7,7 @@ use App\Http\Controllers\StudentEducationsController;
 use App\Http\Controllers\MasterSelectionsController;
 use App\Http\Controllers\StudentDocumentsController;
 use App\Http\Controllers\SummaryController;
+use App\Http\Controllers\TermsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,12 @@ use App\Http\Controllers\SummaryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
- Route::get('/', function () {
-     return view('welcome');
- });
- */
-Route::get('/', [StudentController::class, 'create'])->name('info');
-Route::post('/', [StudentController::class, 'store'])->name('storeinfo');
+Route::get('/', [TermsController::class, 'index'])->name('terms');
+Route::post('/', [TermsController::class, 'store']);
+
+
+Route::get('/info', [StudentController::class, 'create'])->name('info');
+Route::post('/info', [StudentController::class, 'store'])->name('storeinfo');
 
 Route::get('/rp/{id}', [MasterSelectionsController::class, 'create']);
 Route::post('/rp/{id}', [MasterSelectionsController::class, 'store'])->name('storerp');
