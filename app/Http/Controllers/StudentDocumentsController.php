@@ -190,7 +190,7 @@ class StudentDocumentsController extends Controller
                         }
                     }
                 //End Istkmal
-           dd($studentid);
+            
 
 
 
