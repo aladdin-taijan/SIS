@@ -13,6 +13,7 @@
 <div class="row">
     <div class="col-sm-12">
         <ul class='timeline'>
+            <li>الموافقة على الشروط</li>
             <li>البيانات الشخصية</li>
             <li>الخطوة الثانية</li>
             <li>الخطوة الثالثة</li>
@@ -22,13 +23,10 @@
 </div>
 
 <div class="row g-3">
-
     <div class="col-md-12 col-lg-12">
         <h4 class="mb-3"> تحميل الوثائق </h4>
         <form class="needs-validation" novalidate action="{{ route('doc',[$studentid,$program]) }}" method="post"
             enctype="multipart/form-data">
-
-
             @csrf
             <input type="hidden" name="studentid" value="{{$studentid}}">
             <div class="row g-3">
@@ -48,7 +46,6 @@
                         يرجى إدخال اسم أول صحيح.
                     </div>
                 </div>
-
                 @switch($program)
                 @case('lisans')
                 <div class="col-sm-6">
@@ -157,8 +154,6 @@
         </form>
     </div>
 </div>
-
-
 <script text="text/javascript">
     var valid = true;
 
@@ -173,13 +168,7 @@
             var fileSize=fileNams.files[0].size;
             var file_extension=fileNams.files[0].name.split('.').pop().toLowerCase();
             var n = allowed_extensions.includes(file_extension);
-
-
             window.console && console.log(el);
-
-
-
-
             if(fileSize > 2097152){
                     valid = false ;
                     el.style.color='red';
@@ -189,16 +178,12 @@
 
             if(n==false)
                 {
-
                     valid = false; // valid file extension
                     el.style.color='red';
                     el.innerHTML = "نوع الملف غير مسموح";
 
                     return;
                 }
-
-
-
             el.innerHTML="الملف جاهز للتحميل";
             el.style.color='green';
             valid = true;
@@ -209,5 +194,4 @@
                       return valid;
                   }
 </script>
-
 @endsection
