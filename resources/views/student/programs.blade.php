@@ -72,6 +72,7 @@ $(document).ready(function(){
 <div class="row">
     <div class="col-sm-12">
         <ul class='timeline'>
+            <li>الموافقةعلى الشروط</li>
             <li>البيانات الشخصية</li>
             <li class='active'>الخطوة الثانية</li>
             <li>الخطوة الثالثة</li>
