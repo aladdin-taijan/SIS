@@ -110,5 +110,13 @@ trait StudentRules {
            'score3.numeric'=>'يجب إدخال قيمة عددية',
         ];
     }
+     protected function file_uploads()
+    {
+        return $filerules=[
+            'photo' => 'mimes:jpeg,bmp,png',
+            'photo' => 'file|max:2048' , // value in kilobytes 2 * 1024 
+            
+        ];
+    }
 
 }
