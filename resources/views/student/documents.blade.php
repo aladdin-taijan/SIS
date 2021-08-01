@@ -4,12 +4,7 @@
 @endsection
 
 @section('content')
-<div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="{{asset('images/khibrat-logo.png')}}" alt="أكاديمية خبرات">
-    <h2>نموذج تقديم الطلب</h2>
-    <p class="lead">فيما يلي مثال على نموذج تم إنشاؤه بالكامل باستخدام عناصر تحكم النموذج في Bootstrap. لكل مجموعة نماذج
-        مطلوبة حالة تحقق يمكن تشغيلها بمحاولة إرسال النموذج دون استكماله.</p>
-</div>
+
 <div class="row">
     <div class="col-sm-12">
         <ul class='timeline'>
@@ -35,7 +30,7 @@
                     <input type="file" class="form-control" id="personalPhoto" name="personalPhoto" placeholder=""
                         value="" required>
                     <div class="invalid-feedback">
-                        يرجى إدخال اسم أول صحيح.
+                        يرجى تحميل الصورة الشخصية      .
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -43,7 +38,7 @@
                     <input type="file" class="form-control" id="ids" name="ids[]" placeholder="" value="" required
                         multiple>
                     <div class="invalid-feedback">
-                        يرجى إدخال اسم أول صحيح.
+                      يرجى تحميل صورة الهوية او جواز السفر        .
                     </div>
                 </div>
                 @switch($program)

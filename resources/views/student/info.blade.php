@@ -1,13 +1,7 @@
 @extends('student/app')
 
 @section('content')
-
-<div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="{{asset('images/khibrat-logo.png')}}" alt="أكاديمية خبرات">
-    <h2>نموذج تقديم الطلب</h2>
-    <p class="lead">فيما يلي مثال على نموذج تم إنشاؤه بالكامل باستخدام عناصر تحكم النموذج في Bootstrap. لكل مجموعة نماذج
-        مطلوبة حالة تحقق يمكن تشغيلها بمحاولة إرسال النموذج دون استكماله.</p>
-</div>
+ 
 <div class="row">
     <div class="col-sm-12">
         <ul class='timeline'>
