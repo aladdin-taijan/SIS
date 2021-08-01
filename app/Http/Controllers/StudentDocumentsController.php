@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\StudentDocuments;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
+
+
 
 class StudentDocumentsController extends Controller
 {
@@ -18,9 +19,27 @@ class StudentDocumentsController extends Controller
 
         public function store(Request $request)
         {
-            $this->validate($request, [
-                // 'file' => 'required|csv,txt,xlx,xls,pdf|max:2048',
-            ]);
+
+           $request->validate([
+
+                'personalPhoto' => 'mimes:jpeg,bmp,png',
+                'ids.*' => 'mimes:pdf|max:2048',
+                'secondary_lisans.*' => 'mimes:pdf|max:2048',
+                'secondary_master.*' => 'mimes:pdf|max:2048',
+                'lisans_master.*' => 'mimes:pdf|max:2048',
+                'transcript_master.*' => 'mimes:pdf|max:2048',
+                'secondary_phd.*' => 'mimes:pdf|max:2048',
+                'lisans_phd.*' => 'mimes:pdf|max:2048',
+                'master_phd.*' => 'mimes:pdf|max:2048',
+                'lisansTranscript_phd.*' => 'mimes:pdf|max:2048',
+                'masterTranscript_phd.*' => 'mimes:pdf|max:2048',
+                'secondary_istkmal.*' => 'mimes:pdf|max:2048',
+                'transcript_istkmal.*' => 'mimes:pdf|max:2048',
+
+
+               ]);
+
+
 
             $studentid = $request->studentid;
 
@@ -190,7 +209,7 @@ class StudentDocumentsController extends Controller
                         }
                     }
                 //End Istkmal
-            
+
 
 
 

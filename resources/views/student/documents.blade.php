@@ -18,6 +18,16 @@
 </div>
 
 <div class="row g-3">
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="col-md-12 col-lg-12">
         <h4 class="mb-3"> تحميل الوثائق </h4>
         <form class="needs-validation" novalidate action="{{ route('doc',[$studentid,$program]) }}" method="post"
@@ -25,17 +35,18 @@
             @csrf
             <input type="hidden" name="studentid" value="{{$studentid}}">
             <div class="row g-3">
+
                 <div class="col-sm-6">
                     <label for="personalPhoto" class="form-label">الصورة الشخصية</label>
                     <input type="file" class="form-control" id="personalPhoto" name="personalPhoto" placeholder=""
-                        value="" required>
+                       required>
                     <div class="invalid-feedback">
                         يرجى تحميل الصورة الشخصية      .
                     </div>
                 </div>
-                <div class="col-sm-6">
+                 <div class="col-sm-6">
                     <label for="ids" class="form-label">صورة الهوية أو جواز السفر</label>
-                    <input type="file" class="form-control" id="ids" name="ids[]" placeholder="" value="" required
+                    <input type="file" class="form-control @error('ids') is-invalid @enderror" id="ids" name="ids[]"  required
                         multiple>
                     <div class="invalid-feedback">
                       يرجى تحميل صورة الهوية او جواز السفر        .
@@ -43,7 +54,7 @@
                 </div>
                 @switch($program)
                 @case('lisans')
-                <div class="col-sm-6">
+                 <div class="col-sm-6">
                     <label for="secondary_lisans" class="form-label">صورة الشهادة الثانوية (البكالوريا) </label>
                     <input type="file" class="form-control" id="secondary_lisans" name="secondary_lisans[]"
                         placeholder="" value="" required multiple>
@@ -134,9 +145,9 @@
                 <div class="col-sm-6">
                     <label for="transcript_istkmal" class="form-label">صورة كشف العلامات</label>
                     <input type="file" class="form-control" id="transcript_istkmal" name="transcript_istkmal[]"
-                        placeholder="" value="" onchange="validate_fileupload(this.id,'trans_feedback');" required
+                     required
                         multiple>
-                    <div id="trans_feedback">
+                    <div class="invalid-feedback">
                         يرجى تحميل صورة كشف العلامات
                     </div>
                 </div>
@@ -149,44 +160,5 @@
         </form>
     </div>
 </div>
-<script text="text/javascript">
-    var valid = true;
-
-        function validate_fileupload(id,msg)
-        {
-          window.console && console.log("hi here3");
-            var el = document.getElementById(msg);
-            var fileNams = document.getElementById(id);
-
-            var allowed_extensions = new Array("jpg","png","gif","pdf","jpeg");
-
-            var fileSize=fileNams.files[0].size;
-            var file_extension=fileNams.files[0].name.split('.').pop().toLowerCase();
-            var n = allowed_extensions.includes(file_extension);
-            window.console && console.log(el);
-            if(fileSize > 2097152){
-                    valid = false ;
-                    el.style.color='red';
-                    el.innerHTML="حجم الملف أكبر من 2ميغا بايت";
-                    return ;
-            }
-
-            if(n==false)
-                {
-                    valid = false; // valid file extension
-                    el.style.color='red';
-                    el.innerHTML = "نوع الملف غير مسموح";
-
-                    return;
-                }
-            el.innerHTML="الملف جاهز للتحميل";
-            el.style.color='green';
-            valid = true;
-        }
-
-        function valid_form()
-                  {
-                      return valid;
-                  }
-</script>
+ 
 @endsection

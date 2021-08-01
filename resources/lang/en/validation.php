@@ -83,7 +83,7 @@ return [
         'string' => 'The :attribute must not be greater than :max characters.',
         'array' => 'The :attribute must not have more than :max items.',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => ' :attribute يجب أن تكون بصيغة: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
@@ -138,6 +138,7 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
     ],
 
     /*
@@ -151,6 +152,24 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+                'ids.*' => 'صورة الهوية أو جواز السفر  ',
+                'personalPhoto' => 'الصورة الشخصية يجب أن تكون بصيغة',
+
+                'secondary_lisans.*' => 'صورة الشهادة الثانوية (البكالوريا)',
+                
+                'secondary_master.*' => 'صورة الشهادة الثانوية (البكالوريا)',
+                'lisans_master.*' => 'صورة الشهادة الجامعية',
+                'transcript_master.*' => 'صورة كشف العلامات',
+
+                'secondary_phd.*' => 'صورة الشهادة الثانوية (البكالوريا)',
+                'lisans_phd.*' => 'صورة الشهادة الجامعية',
+                'master_phd.*' => 'صورة شهادة الماجستير',
+                'lisansTranscript_phd.*' => 'صورة كشف العلامات ليسنس',
+                'masterTranscript_phd.*' => 'صورة كشف العلامات الماجستير',
+
+                'secondary_istkmal.*' => 'صورة الشهادة الثانوية (البكالوريا)',
+                'transcript_istkmal.*' => 'صورة كشف العلامات',
+    ],
 
 ];
