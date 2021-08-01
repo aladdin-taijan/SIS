@@ -23,6 +23,11 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.rtl.min.css')}}" rel="stylesheet">
 
+    <!-- Tajawal google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet"> 
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -39,6 +44,15 @@
         }
     </style>
     <style>
+        h1 h2 h3 h4 h5 h6 {
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+        
+
+
+        }
         .timeline {
             margin: 0;
             padding: 0;
@@ -98,9 +112,10 @@
             color: black;
         }
 .navbar-bg{
-    background: url('{{ asset('images/navbar-bg.jpg') }}');
+    background: url('{{ asset('images/navbar-bg3.jpg') }}');
    background-size: cover;
-   height: 320px;
+   height: 150px;
+   
 }
     </style>
     <!-- Custom styles for this template -->
@@ -110,11 +125,13 @@
 
 <body class="bg-light">
     <div class="container-fluid">
-        <div class="p-4 p-md-5 mb-4 text-white rounded navbar-bg">
-            <div class="col-md-6 px-0">
+        <div class="p-4 p-md-5 mb-4 text-red rounded navbar-bg">
+            <div class="col-md-12 px-0">
               <h1 class="">أكاديمية خبرات</h1>
-              <p class="lead my-3">عدة أسطر نصية متعددة تعبر عن التدوية، وذلك لإعلام القراء الجدد بسرعة وكفاءة حول أكثر الأشياء إثارة للاهتمام في محتويات هذه التدوينة.</p>
-             </div>
+              <img class="float-md-end align-top" src="{{asset('images/khibrat-logo.png')}}" alt="أكاديمية خبرات">
+
+            </div>
+            
         </div>
     </div>
     <div class="container">

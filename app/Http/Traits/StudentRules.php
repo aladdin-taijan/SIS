@@ -49,7 +49,7 @@ trait StudentRules {
          return $edurules =[
             'issued_country'=>'required|sometimes',
             'issued_authority'=>'required',
-            'issued_year'=>'required|integer|max:'.date('Y'),
+            'issued_year'=>'required|integer',
             'score'=>'required|numeric',
 
          ];
@@ -58,11 +58,11 @@ trait StudentRules {
          return $edurules=[
             'issued_country'=>'required|sometimes',
             'issued_authority'=>'required',
-            'issued_year'=>'required|integer|max:'.date('Y'),
+            'issued_year'=>'required|integer',
             'score'=>'required|numeric',
             'issued_country2'=>'required|sometimes',
             'issued_authority2'=>'required',
-            'issued_year2'=>'required|integer|max:'.date('Y'),
+            'issued_year2'=>'required|integer',
             'score2'=>'required|numeric',
          ];
      }
@@ -70,15 +70,15 @@ trait StudentRules {
         return $edurules=[
             'issued_country'=>'required|sometimes',
             'issued_authority'=>'required',
-            'issued_year'=>'required|integer|max:'.date('Y'),
+            'issued_year'=>'required|integer',
             'score'=>'required|numeric',
             'issued_country2'=>'required|sometimes',
             'issued_authority2'=>'required',
-            'issued_year2'=>'required|integer|max:'.date('Y'),
+            'issued_year2'=>'required|integer',
             'score2'=>'required|numeric',
             'issued_country3'=>'required|sometimes',
             'issued_authority3'=>'required',
-            'issued_year3'=>'required|integer|max:'.date('Y'),
+            'issued_year3'=>'required|integer',
             'score3'=>'required|numeric',
         ];
     }
@@ -110,13 +110,6 @@ trait StudentRules {
            'score3.numeric'=>'يجب إدخال قيمة عددية',
         ];
     }
-     protected function file_uploads()
-    {
-        return $filerules=[
-            'photo' => 'mimes:jpeg,bmp,png',
-            'photo' => 'file|max:2048' , // value in kilobytes 2 * 1024 
-            
-        ];
-    }
+     
 
 }

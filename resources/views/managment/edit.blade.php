@@ -5,10 +5,21 @@
           تعديل البيانات الشخصية <i class="fas fa-list mr-3 " ></i>
     </p>
     <div class="leading-loose " >
-        <form class="p-10 bg-white rounded shadow-xl text-right" method="POST" action="{{route('update',$student->id)}}"  autocomplete="off" enctype="multipart/form-data" >
-            @csrf 
-            <p class="text-lg text-gray-800 font-medium pb-4">معلومات الطالب</p>
+        <section class="p-10 bg-white rounded shadow-xl text-right">
+
+        <form  method="POST" action="{{route('update',$student->id)}}"  autocomplete="off" enctype="multipart/form-data" >
+            @csrf
+            <p class="text-xl text-gray-800 font-medium pb-4">معلومات الطالب</p> 
+            <div class="text-right inline-block -mx-1  mt-2  w-1/2 pr-1">
+                <embed  name="plugin" src="{{ asset('storage/'.$student->student_number.'/'.'PNKq6U6lX9G1Kwv3QR0fb6LfIRbRE0BicsrFspuT.jpg') }}" class="block  object-center w-24 h-24 rounded-lg" type="application/pdf">
+            </div>
+            <div class="inline-block  w-1/2 pr-1 text-right">
+            
             <p class="text-lg text-gray-800 font-medium pb-4">رقم الطالب: {{ $student->student_number }}</p>
+            <p class="text-sm text-gray-800 font-small pb-4">تاريخ التسجيل: {{ $student->created_at }}</p>
+            <p class="text-sm text-gray-800 font-small pb-4">أخر تعديل: {{ $student->updated_at }}</p>
+            </div>
+            
             @if ($errors->any())
             @php
             $i=3000;
@@ -80,9 +91,16 @@
                 <label class="block text-sm text-gray-600" for="program">التخصص الجامعي</label>
                 <select class="w-full px-1 py-3  text-gray-700 bg-gray-200 rounded text-right" id="program" name="program"  aria-label="program">
                     <option value="">اختر التخصص </option>
-                    <option value="ليسانس">ليسانس</option>
-                    <option value="ماجستير" >ماجستير</option>
-                    <option value="دكتوراه">دكتوراه</option>
+                    <option value="lisans" @if ($student->program=='lisans')
+                        selected=selected @endif>ليسانس</option>
+                    <option value="master"  @if ($student->program=='master')
+                        selected=selected @endif>ماجستير</option>
+                    <option value="phd"  @if ($student->program=='phd')
+                        selected=selected @endif>دكتوراه</option>
+                    <option value="istkmal"  @if ($student->program=='phd')
+                        selected=selected @endif>استكمال</option>
+                    <option value="premaster"  @if ($student->program=='phd')
+                        selected=selected @endif>تمهيدي ماجستير</option>
                 </select>
             </div>
             <div class="mt-2   text-right">
@@ -153,7 +171,7 @@
             <div class="mt-6">
                 <button class="px-4 py-1 text-white font-light tracking-wider bg-blue-600 rounded" type="submit">تعديل</button>
             </div>
-        </form>
+        </section>
     </div>
     <p class="pt-6 text-gray-600">
         Source: <a class="underline" href="https://tailwindcomponents.com/component/checkout-form">https://tailwindcomponents.com/component/checkout-form</a>
@@ -161,57 +179,63 @@
 </div>
 
 <!--this section for another info about student-->
-<div class="w-full lg:w-1/2 mt-6 pl-0 lg:pl-2 float-right"  >
+<div class="w-full lg:w-1/2 mt-6 pl-0 lg:pl-2 "  >
     <p class="text-xl pb-6   text-right">
-          تعديل البيانات <i class="fas fa-list mr-3 " ></i>
+          تعديل البيانات الدراسية <i class="fas fa-list mr-3 " ></i>
     </p>
     <div class="leading-loose bg-white " >
-        <section class="overflow-hidden text-gray-700 ">
-            <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
-                <div class="flex flex-wrap -m-1 md:-m-2">
-                    <div class="flex flex-wrap w-1/3">
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap w-1/3">
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap w-1/3">
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap  w-1/3">
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap w-1/3">
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="https://dummyimage.com/1024x1080/F3F4F7/8693ac">
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap w-1/3">
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg"
-                                src="https://dummyimage.com/800x600/F3F4F7/8693ac">
-                        </div>
-                    </div>
+        <section class="p-10 bg-white rounded shadow-xl text-right">
+                @foreach ($studentedu as $studentEdu )
+                <div class="block pr-1 text-right">
+                    @switch($studentEdu->edu_type)
+                        @case(1)
+                        <p class="text-lg text-gray-800 font-medium pb-4">الشهادة الثانوية</p>    
+                        @break
+                        @case(2)
+                        <p class="text-lg text-gray-800 font-medium pb-4">شهادة الليسانس</p>    
+                        @break
+                        @case(3)
+                        <p class="text-lg text-gray-800 font-medium pb-4">شهادة الماجستير</p>    
+                        @break
+                    
+                        @default
+                            
+                    @endswitch
                 </div>
+                <div class="inline-block mt-2 -mx-1 w-1/2 pr-1 text-right">
+                    <label class="block text-sm text-gray-600" for="issued_authority{{ $studentEdu->edu_type }}">الجهة المانحة للشهادة</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded text-right" id="issued_authority{{ $studentEdu->edu_type }}" name="issued_authority{{ $studentEdu->edu_type }}" value="{{ $studentEdu->issued_authority }}" type="text" required=""  aria-label="Name">
+                    
+                </div>
+                <div class="text-right inline-block   w-1/2 pr-1">
+                    <label class="block text-m text-gray-600" for="issued_country{{ $studentEdu->edu_type }}">اسم البلد</label>
+                <select class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded text-right" id="issued_country{{ $studentEdu->edu_type }}" name="issued_country{{ $studentEdu->edu_type }}"  aria-label="Name">
+                    <option value="" >اختر الدولة</option>
+                    @foreach ($country as $countries )
+                        <option @if ($countries == $studentEdu->issued_country)
+                            selected=selected
+                            
+                        @endif
+                        value="{{ $countries }}">{{ $countries }}</option>
+                    @endforeach
+                </select> 
+                </div>
+                <div class="inline-block mt-2 -mx-1 w-1/2 pr-1  text-right">
+                    <label class=" block text-sm text-gray-600" for="issued_date{{ $studentEdu->edu_type }}">تاريخ الاصدار</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded text-right" id="issued_date{{ $studentEdu->edu_type }}" name="issued_date{{ $studentEdu->edu_type }}" value="{{ $studentEdu->issued_date }}"  type="text" required=""  aria-label="Email">
+                </div>
+                <div class="mt-2 inline-block   w-1/2 pr-1 text-right">
+                    <label class="block text-sm text-gray-600" for="score{{ $studentEdu->edu_type }}">المعدل</label>
+                    <input class="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded text-right" id="score{{ $studentEdu->edu_type }}" name="score{{ $studentEdu->edu_type }}" value="{{ $studentEdu->score }}"  type="text" required=""  aria-label="Email">
+                </div>
+                @endforeach
+            </div>
           </section>
           
           
     </div>
     
 </div>
-
+</form>
 
 @endsection

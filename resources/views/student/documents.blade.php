@@ -33,18 +33,23 @@
                 <div class="col-sm-6">
                     <label for="personalPhoto" class="form-label">الصورة الشخصية</label>
                     <input type="file" class="form-control" id="personalPhoto" name="personalPhoto" placeholder=""
-                        value="" required>
+                        value="" onchange="validate_fileupload(this.id,'photo_feedback');" required>
                     <div class="invalid-feedback">
                         يرجى إدخال اسم أول صحيح.
+                        
+                    </div>
+                    <div id='photo_feedback'>
+                            
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <label for="ids" class="form-label">صورة الهوية أو جواز السفر</label>
                     <input type="file" class="form-control" id="ids" name="ids[]" placeholder="" value="" required
-                        multiple>
+                    onchange="validate_fileupload(this.id,'passport_feedback');" multiple>
                     <div class="invalid-feedback">
                         يرجى إدخال اسم أول صحيح.
                     </div>
+                    <div id="passport_feedback"></div>
                 </div>
                 @switch($program)
                 @case('lisans')
@@ -159,16 +164,24 @@
 
         function validate_fileupload(id,msg)
         {
-          window.console && console.log("hi here3");
+          
             var el = document.getElementById(msg);
             var fileNams = document.getElementById(id);
+            window.console && console.log("get it");
+            
+            if (fileNams.name == 'personalPhoto'){
+                var allowed_extensions = new Array("jpg","png","jpeg");
 
-            var allowed_extensions = new Array("jpg","png","gif","pdf","jpeg");
+            }
+            else {
+                var allowed_extensions = new Array("pdf");
+            }
+           
 
             var fileSize=fileNams.files[0].size;
             var file_extension=fileNams.files[0].name.split('.').pop().toLowerCase();
             var n = allowed_extensions.includes(file_extension);
-            window.console && console.log(el);
+            window.console && console.log(fileNams);
             if(fileSize > 2097152){
                     valid = false ;
                     el.style.color='red';

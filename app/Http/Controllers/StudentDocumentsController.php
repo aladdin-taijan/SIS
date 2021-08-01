@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\StudentRules;
 use App\Models\StudentDocuments;
+use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Validator;
 
 class StudentDocumentsController extends Controller
 {
     //
-
+        //use StudentRules;
         public function create($id,$program){
             $studentid=$id;
             $program = $program;
@@ -18,16 +21,19 @@ class StudentDocumentsController extends Controller
 
         public function store(Request $request)
         {
+            
+           // $validate=Validator::make($request->all() , $rules , $messages);
             $this->validate($request, [
                 // 'file' => 'required|csv,txt,xlx,xls,pdf|max:2048',
             ]);
 
+            $student_number= Students::find($request->studentid)->student_number;
             $studentid = $request->studentid;
 
 
 
             //personal image
-            $path = $request->file('personalPhoto')->store('public/'. $studentid );
+            $path = $request->file('personalPhoto')->store('public/'. $student_number );
             $personal_image_name = $request->file('personalPhoto')->getClientOriginalName();
             $save_personal_image=StudentDocuments::create([
                 'name' => $personal_image_name,
@@ -42,7 +48,7 @@ class StudentDocumentsController extends Controller
               {
                   $save_ids=StudentDocuments::create([
                     'name' => $file->getClientOriginalName(),
-                    'path' =>     $file->store('public/'. $studentid ),
+                    'path' =>     $file->store('public/'. $student_number ),
                     'student_id'=>   $studentid
                 ]);
               }
