@@ -46,11 +46,12 @@
                 </div>
                  <div class="col-sm-6">
                     <label for="ids" class="form-label">صورة الهوية أو جواز السفر</label>
-                    <input type="file" class="form-control @error('ids') is-invalid @enderror" id="ids" name="ids[]"  required
+                    <input type="file" class="form-control" id="ids" name="ids[]"  required
                         multiple>
                     <div class="invalid-feedback">
                       يرجى تحميل صورة الهوية او جواز السفر        .
                     </div>
+                    <div id="passport_feedback"></div>
                 </div>
                 @switch($program)
                 @case('lisans')
@@ -160,5 +161,5 @@
         </form>
     </div>
 </div>
- 
+
 @endsection

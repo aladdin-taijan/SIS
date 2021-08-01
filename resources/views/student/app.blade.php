@@ -29,6 +29,11 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/bootstrap.rtl.min.css')}}" rel="stylesheet">
 
+    <!-- Tajawal google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -45,6 +50,15 @@
         }
     </style>
     <style>
+        h1 h2 h3 h4 h5 h6 {
+            font-family: 'Tajawal', sans-serif;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+
+
+
+        }
         .timeline {
             margin: 0;
             padding: 0;
@@ -106,7 +120,8 @@
 .navbar-bg{
     background: url('{{ asset('images/1navbar-bg.jpg') }}');
    background-size: cover;
-   height: 320px;
+   height: 350px;
+
 }
 footer{
     background: url('{{ asset('images/1navbar-bg.jpg') }}');
@@ -132,7 +147,7 @@ footer{
     <div class="py-5 text-center">
 
         <h2>نموذج تقديم الطلب</h2>
-        <p class="lead">فيما يلي مثال على نموذج تم إنشاؤه بالكامل باستخدام عناصر تحكم النموذج في Bootstrap. لكل مجموعة نماذج
+        <p class="lead text-center w-75 m-auto">فيما يلي مثال على نموذج تم إنشاؤه بالكامل باستخدام عناصر تحكم النموذج في Bootstrap. لكل مجموعة نماذج
             مطلوبة حالة تحقق يمكن تشغيلها بمحاولة إرسال النموذج دون استكماله.</p>
     </div>
     <div class="container">

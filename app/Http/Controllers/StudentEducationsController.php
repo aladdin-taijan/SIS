@@ -58,7 +58,8 @@ class StudentEducationsController extends Controller
                     'student_id'=>$studentid,
         
                 ]);
-                case 'istkmal':
+                break;
+            case 'istkmal':
                     StudentEducations::create([
                         'edu_type'=>$request->edu_type,
                         'issued_country'=>$request->issued_country,
@@ -69,7 +70,7 @@ class StudentEducationsController extends Controller
             
                     ]);
                 break;
-                case 'master':
+            case 'master':
                     StudentEducations::create([
                         'edu_type'=>$request->edu_type,
                         'issued_country'=>$request->issued_country,
@@ -89,7 +90,7 @@ class StudentEducationsController extends Controller
                         'student_id'=>$studentid,
                     ]);
                     break;
-                    case 'phd':
+                case 'phd':
                         StudentEducations::create([
                             'edu_type'=>$request->edu_type,
                             'issued_country'=>$request->issued_country,
@@ -125,7 +126,7 @@ class StudentEducationsController extends Controller
                 break;
         }
        
-        return $request->all();
-        //return redirect()->route('rp');
+        
+        return redirect('doc/'.$studentid.'/'.$program);
     }
 }
